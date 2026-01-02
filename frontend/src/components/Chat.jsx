@@ -21,7 +21,8 @@ const Chat = () => {
         // Fetch Chat History
         const fetchHistory = async () => {
             try {
-                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/chat/history`);
+                const apiUrl = import.meta.env.VITE_API_URL?.trim();
+                const res = await axios.get(`${apiUrl}/api/chat/history`);
                 setMessages(res.data);
             } catch (err) {
                 console.error('Failed to fetch chat history');
@@ -29,7 +30,8 @@ const Chat = () => {
         };
         fetchHistory();
 
-        socketRef.current = io(import.meta.env.VITE_API_URL);
+        const apiUrl = import.meta.env.VITE_API_URL?.trim();
+        socketRef.current = io(apiUrl);
         
         // Join chat
         socketRef.current.emit('join', user.username);

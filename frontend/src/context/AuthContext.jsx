@@ -28,14 +28,16 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async (username, password) => {
-        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { username, password });
+        const apiUrl = import.meta.env.VITE_API_URL?.trim();
+        const res = await axios.post(`${apiUrl}/api/auth/login`, { username, password });
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.user));
         setUser(res.data.user);
     };
 
     const register = async (username, password) => {
-        const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, { username, password });
+        const apiUrl = import.meta.env.VITE_API_URL?.trim();
+        const res = await axios.post(`${apiUrl}/api/auth/register`, { username, password });
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.user));
         setUser(res.data.user);
