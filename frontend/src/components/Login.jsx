@@ -20,8 +20,8 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
-            <div className="w-full max-w-md p-8 space-y-6 bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-white/20">
+        <div className="flex items-center justify-center min-h-[100dvh] p-4">
+            <div className="w-full max-w-md p-6 md:p-8 space-y-6 bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-white/20">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
                     <p className="text-zinc-400">Sign in to continue to K23PS Chat</p>

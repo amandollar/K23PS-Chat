@@ -75,10 +75,10 @@ const Chat = () => {
     if (!user) return <div className="flex items-center justify-center min-h-screen text-white">Loading...</div>;
 
     return (
-        <div className="flex flex-col h-screen max-w-6xl mx-auto p-4 md:p-6 lg:p-8">
-            <div className="bg-black/40 backdrop-blur-lg rounded-2xl shadow-2xl flex flex-col h-full overflow-hidden border border-white/10 relative">
+        <div className="flex flex-col h-[100dvh] md:h-screen max-w-6xl mx-auto md:p-6 lg:p-8">
+            <div className="bg-black/40 backdrop-blur-lg md:rounded-2xl shadow-2xl flex flex-col h-full overflow-hidden border-x md:border border-white/10 relative">
                 {/* Header */}
-                <header className="bg-white/5 border-b border-white/10 p-4 flex justify-between items-center backdrop-blur-sm">
+                <header className="bg-white/5 border-b border-white/10 p-3 md:p-4 flex justify-between items-center backdrop-blur-sm">
                     <div className="flex items-center gap-3">
                         <div className="h-10 w-10 bg-gradient-to-tr from-rose-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold shadow-md">
                             {user.username.charAt(0).toUpperCase()}
@@ -99,7 +99,7 @@ const Chat = () => {
                 </header>
 
                 {/* Chat Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-transparent" onClick={() => setShowPicker(false)}>
+                <div className="flex-1 overflow-y-auto p-2 md:p-4 space-y-4 bg-transparent" onClick={() => setShowPicker(false)}>
                     {messages.map((msg, index) => (
                         <div key={index} className={`flex ${msg.user === user.username ? 'justify-end' : 'justify-start'}`}>
                             {msg.user !== 'System' && msg.user !== user.username && (
@@ -107,7 +107,7 @@ const Chat = () => {
                                     {msg.user.charAt(0).toUpperCase()}
                                 </div>
                             )}
-                            <div className={`max-w-[80%] md:max-w-[60%] p-3 rounded-2xl shadow-sm ${
+                            <div className={`max-w-[85%] md:max-w-[60%] p-3 rounded-2xl shadow-sm ${
                                 msg.user === user.username ? 'bg-gradient-to-tr from-rose-500 to-pink-600 text-white rounded-br-none' : 
                                 msg.user === 'System' ? 'bg-transparent text-zinc-500 text-center w-full text-xs font-medium my-2 shadow-none' : 
                                 'bg-slate-800 text-zinc-100 rounded-bl-none border border-white/5'
@@ -130,7 +130,7 @@ const Chat = () => {
                 )}
 
                 {/* Input Area */}
-                <div className="p-4 bg-white/5 border-t border-white/10">
+                <div className="p-3 md:p-4 bg-white/5 border-t border-white/10">
                     <form onSubmit={sendMessage} className="flex gap-2 bg-black/20 p-1.5 rounded-xl border border-white/10 focus-within:ring-2 focus-within:ring-rose-500/50 transition shadow-inner">
                         <button
                             type="button"
